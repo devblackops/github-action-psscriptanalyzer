@@ -40,7 +40,7 @@ $strings = @{
 $summary = ($strings.summary -f $nl, $errors, $nl, $warnings, $nl, $infos)
 $comment = '```' + $nl + $summary + $nl + '```'
 if ($errors -gt 0) {
-    $comment += $scripts.errorList -f $nl, $nl
+    $comment += $strings.errorList -f $nl, $nl
     $errorMsg = ($issues.Where({$_.Severity -eq 'Error'}) |
         Format-List -Property RuleName, Severity, ScriptName, Line, Message |
         Out-String -Width 80).Trim()
