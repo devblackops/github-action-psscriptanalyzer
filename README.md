@@ -40,3 +40,7 @@ action "PSScriptAnalyzer" {
 |--------------------------------|---------|-------------|
 | PSSCRIPTANALYZER_ROOT          | . | The root directory to run PSScriptAnalyzer on. By default, this is the root of the repository.
 | PSSCRIPTANALYZER_SETTINGS_PATH | none | The path to a PSScriptAnalyser settings file to control rules to execute.
+
+## Example
+
+![](media/example.jpg)
