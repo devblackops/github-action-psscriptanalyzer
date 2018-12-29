@@ -9,12 +9,16 @@ LABEL "com.github.actions.description"  = "Run PSScriptAnalyzer tests"
 LABEL "com.github.actions.icon"         = "box"
 LABEL "com.github.actions.color"        = "blue"
 
+LABEL "name"       = "github-action-psscriptanalyzer"
+LABEL "version"    = "1.0.0"
 LABEL "repository" = "https://github.com/devblackops/github-action-psscriptanalyzer"
 LABEL "homepage"   = "https://github.com/PowerShell/PSScriptAnalyzer"
 LABEL "maintainer" = "Brandon Olin <brandon@devblackops.io>"
 
 ADD entrypoint.sh  /entrypoint.sh
 ADD run.ps1        /run.ps1
+
+COPY LICENSE README.md /
 
 RUN chmod +x /entrypoint.sh
 
