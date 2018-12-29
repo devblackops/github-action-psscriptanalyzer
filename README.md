@@ -13,8 +13,7 @@ Place the following in your `./github/main.workflow` file to run PSScriptAnalyze
 
 > Make sure `secrets = ["GITHUB_TOKEN"]` is present as it is required to post a comment back to the pull request.
 
-```
-
+```hcl
 workflow "psscriptanalysis" {
   on       = "pull_request"
   resolves = "PSScriptAnalyzer"
