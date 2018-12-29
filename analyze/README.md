@@ -28,10 +28,10 @@ action "PSScriptAnalyzer" {
     secrets = ["GITHUB_TOKEN"]
 
     # Optional environment variables to control analysis behavior
-    env = [
+    env = {
         PSSCRIPTANALYZER_ROOT          = "./MyModule"
         PSSCRIPTANALYZER_SETTINGS_PATH = "./settings.psd1
-    ]
+    }
 }
 ```
 
