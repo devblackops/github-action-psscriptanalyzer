@@ -11,6 +11,8 @@ If any warnings or informational issues are found, a comment will be posted to t
 
 Place the following in your `./github/main.workflow` file to run PSScriptAnalyzer on incoming pull requests.
 
+> Make sure `secrets = ["GITHUB_TOKEN"]` is present as it is required to post a comment back to the pull request.
+
 ```
 
 workflow "psscriptanalysis" {
@@ -22,6 +24,8 @@ action "PSScriptAnalyzer" {
     # Replace <latest tag> with the latest tag from
     # https://github.com/devblackops/github-action-psscriptanalyzer/releases
     uses = "devblackops/github-action-psscriptanalyzer/analyze@<latest tag>"
+
+    secrets = ["GITHUB_TOKEN"]
 
     # Optional environment variables to control analysis behavior
     env = [
