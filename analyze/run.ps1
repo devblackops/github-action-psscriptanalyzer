@@ -53,7 +53,7 @@ Write-Output $comment
 
 # Send comment back to PR if any errors were found
 $ghEvent = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json
-if ($errors.Count -gt 0) {
+if ($errors -gt 0) {
     $params = @{
         Uri = $ghEvent.pull_request.'_links'.comments.href
         Method = 'Post'
