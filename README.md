@@ -1,3 +1,5 @@
+![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/devblackops/github-action-psscriptanalyzer)
+
 # github-action-psscriptanalyzer
 
 [GitHub Action](https://github.com/features/actions) to run [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) static code analysis checks on [Pull Requests](https://help.github.com/articles/about-pull-requests/).
