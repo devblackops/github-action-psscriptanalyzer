@@ -37,6 +37,11 @@ action "PSScriptAnalyzer" {
 ## Environment Variables
 
 | Name | Default | Description |
-|--------------------------------|---------|-------------|
-| PSSCRIPTANALYZER_ROOT          | . | The root directory to run PSScriptAnalyzer on. By default, this is the root of the repository.
+|--------------------------------|------|-------------|
+| PSSCRIPTANALYZER_ROOT          | .    | The root directory to run PSScriptAnalyzer on. By default, this is the root of the repository.
 | PSSCRIPTANALYZER_SETTINGS_PATH | none | The path to a PSScriptAnalyser settings file to control rules to execute.
+| PSSCRIPTANALYZER_SEND_COMMENT  | true | Enable/disable sending comments with PSScriptAnalyzer results back to PR.
+
+## Example
+
+![](media/example.jpg)

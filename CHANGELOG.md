@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.0] - 2018-01-06
+
+### Changed
+
+- Call PowerShell entrypoint script directly instead of calling bash first.
+- Allow disabling sending PSScriptAnalyzer results back to PR by setting the environment variable `PSSCRIPTANALYZER_SEND_COMMENT` to `false` or `0`.
+
 ## [1.0.1] - 2018-12-28
 
 ### Fixed
