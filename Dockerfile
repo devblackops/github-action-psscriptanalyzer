@@ -6,8 +6,8 @@ RUN Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; \
 FROM base as analyzer
 LABEL "com.github.actions.name"         = "PSScriptAnalyzer"
 LABEL "com.github.actions.description"  = "Run PSScriptAnalyzer tests"
-LABEL "com.github.actions.icon"="check-square"
-LABEL "com.github.actions.color"="green"
+LABEL "com.github.actions.icon"         = "check-square"
+LABEL "com.github.actions.color"        = "green"
 
 LABEL "name"       = "github-action-psscriptanalyzer"
 LABEL "version"    = "1.2.0"
