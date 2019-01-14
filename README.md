@@ -24,7 +24,7 @@ workflow "psscriptanalysis" {
 action "PSScriptAnalyzer" {
     # Replace <latest tag> with the latest tag from
     # https://github.com/devblackops/github-action-psscriptanalyzer/releases
-    uses = "devblackops/github-action-psscriptanalyzer/analyze@<latest tag>"
+    uses = "devblackops/github-action-psscriptanalyzer@<latest tag>"
 
     secrets = ["GITHUB_TOKEN"]
 

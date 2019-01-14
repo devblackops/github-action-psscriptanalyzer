@@ -23,7 +23,7 @@ if ($Bootstrap.IsPresent) {
 }
 
 # Execute psake task(s)
-$psakeFile = './analyze/psakeFile.ps1'
+$psakeFile = './psakeFile.ps1'
 Set-BuildEnvironment -Force -WarningAction SilentlyContinue
 if ($PSCmdlet.ParameterSetName -eq 'Help') {
     Get-PSakeScriptTasks -buildFile $psakeFile  |
