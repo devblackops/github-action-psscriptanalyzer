@@ -14,12 +14,12 @@ action "filter-to-pr-open-synced" {
 }
 
 action "analyze-pr" {
-  uses    = "./analyze"
+  uses    = "devblackops/github-action-psscriptanalyzer@master"
   needs   = "filter-to-pr-open-synced"
   secrets = ["GITHUB_TOKEN"]
 }
 
 action "analyze" {
-  uses    = "./analyze"
+  uses    = "devblackops/github-action-psscriptanalyzer@master"
   secrets = ["GITHUB_TOKEN"]
 }
