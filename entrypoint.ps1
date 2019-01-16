@@ -51,15 +51,14 @@ if (($warnings -gt 0) -or ($infos -gt 0)) {
 }
 Write-Output $comment
 
-# Comment threshold
-
+$ghEvent = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json
+$commentsUrl = $ghEvent.pull_request.comments_url
 
 # Send comment back to PR if any errors were found
-if ($env:PSSCRIPTANALYZER_SEND_COMMENT -ne 'false' -and $env:PSSCRIPTANALYZER_SEND_COMMENT -ne 0) {
+if ($env:PSSCRIPTANALYZER_SEND_COMMENT -ne 'false' -and $env:PSSCRIPTANALYZER_SEND_COMMENT -ne 0 -and $commentsUrl) {
     if ($errors -gt 0) {
-        $ghEvent = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json
         $params = @{
-            Uri = $ghEvent.pull_request.'_links'.comments.href
+            Uri = $commentsUrl
             Method = 'Post'
             Headers = @{
                 Authorization = "token $env:GITHUB_TOKEN"
