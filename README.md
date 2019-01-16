@@ -1,5 +1,3 @@
-![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/devblackops/github-action-psscriptanalyzer)
-
 # github-action-psscriptanalyzer
 
 [GitHub Action](https://github.com/features/actions) to run [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) static code analysis checks on [Pull Requests](https://help.github.com/articles/about-pull-requests/).
@@ -12,6 +10,7 @@ If any warnings or informational issues are found, a comment will be posted to t
 ## Usage
 
 Place the following in your `./github/main.workflow` file to run PSScriptAnalyzer on incoming pull requests.
+This action can be triggered from other GitHub events but analyzer results will only be posted as comments to pull requests.
 
 > Make sure `secrets = ["GITHUB_TOKEN"]` is present as it is required to post a comment back to the pull request.
 
