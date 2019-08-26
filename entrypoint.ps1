@@ -1,5 +1,3 @@
-#requires -modules PSScriptAnalyzer
-
 [cmdletbinding()]
 param()
 
