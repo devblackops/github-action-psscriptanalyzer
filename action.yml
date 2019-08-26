@@ -10,7 +10,7 @@ inputs:
     description: The path to a PSScriptAnalyser settings file to control rules to execute.
     required: false
     default: .
-  INPUT_SENDCOMMENT:
+  sendComment:
     description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more failure checks.
     required: false
     default: true
