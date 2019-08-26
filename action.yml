@@ -1,0 +1,31 @@
+name: PSScriptAnalyzer
+author: Brandon Olin
+description: GitHub Action to run PSScriptAnalyzer static code analysis checks on Pull Requests
+inputs:
+  rootPath:
+    description: The root directory to run PSScriptAnalyzer on. By default, this is the root of the repository.
+    default: .
+    required: false
+  settingsPath:
+    description: The path to a PSScriptAnalyser settings file to control rules to execute.
+    required: false
+    default: .
+  INPUT_SENDCOMMENT:
+    description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more failure checks.
+    required: false
+    default: true
+  # sendCommentOnWarnings:
+  #   description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more warning checks.
+  #   required: false
+  #   default: true
+  # sendCommentOnInfos:
+  #   description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more information checks.
+  #   required: false
+  #   default: false
+outputs:
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: check-square
+  color: green

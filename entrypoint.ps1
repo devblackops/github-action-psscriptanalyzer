@@ -12,16 +12,16 @@ $analyzeParams = @{
 }
 
 # By default, run PSScriptAnalyzer on the whole repository
-# but allow overriding this with PSSCRIPTANALYZER_ROOT environment variable
-if ($env:PSSCRIPTANALYZER_ROOT) {
-    $analyzeParams.Path = $env:PSSCRIPTANALYZER_ROOT
+# but allow overriding this with INPUT_ROOTPATH environment variable
+if ($env:INPUT_ROOTPATH) {
+    $analyzeParams.Path = $env:INPUT_ROOTPATH
 } else {
     $analyzeParams.Path = $env:GITHUB_WORKSPACE
 }
 
 # Path to custom script analzyer settings
-if ($env:PSSCRIPTANALYZER_SETTINGS_PATH) {
-    $analyzeParams.Settings = $env:PSSCRIPTANALYZER_SETTINGS_PATH
+if ($env:INPUT_SETTINGSPATH) {
+    $analyzeParams.Settings = $env:INPUT_SETTINGSPATH
 }
 
 # Run PSScriptAnalyzer
@@ -55,7 +55,7 @@ $ghEvent = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json
 $commentsUrl = $ghEvent.pull_request.comments_url
 
 # Send comment back to PR if any errors were found
-if ($env:PSSCRIPTANALYZER_SEND_COMMENT -ne 'false' -and $env:PSSCRIPTANALYZER_SEND_COMMENT -ne 0 -and $commentsUrl) {
+if ($env:INPUT_SENDCOMMENT -ne 'false' -and $env:INPUT_SENDCOMMENT -ne 0 -and $commentsUrl) {
     if ($errors -gt 0) {
         $params = @{
             Uri = $commentsUrl
