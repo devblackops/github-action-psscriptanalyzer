@@ -61,7 +61,7 @@ if ($env:INPUT_SENDCOMMENT -ne 'false' -and $env:INPUT_SENDCOMMENT -ne 0 -and $c
             Uri = $commentsUrl
             Method = 'Post'
             Headers = @{
-                Authorization = "token $env:GITHUB_TOKEN"
+                Authorization = "token $env:INPUT_REPOTOKEN"
             }
             ContentType = 'application/json'
             Body = @{body = $comment} | ConvertTo-Json

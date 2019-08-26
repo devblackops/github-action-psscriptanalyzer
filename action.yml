@@ -14,6 +14,9 @@ inputs:
     description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more failure checks.
     required: false
     default: true
+  repoToken:
+    description: GitHub token the action will use to send comments back to PR with.
+    required: false
   # sendCommentOnWarnings:
   #   description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more warning checks.
   #   required: false
