@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - Unreleased
+
+### Changed
+
+- Refactored to new GitHub Action syntax
+- Renamed options to:
+  - rootPath
+  - settingsPath
+  - repoToken
+  - sendComment
+  - failOnErrors
+  - failOnWarnings
+  - failOnInfos
+- Allow failing the GitHub Action on PSSA error, warning, or informational issues
+
 ## [1.2.1] - 2019-01-15
 
 ### Fixed

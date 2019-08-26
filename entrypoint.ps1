@@ -12,60 +12,57 @@ $analyzeParams = @{
 # By default, run PSScriptAnalyzer on the whole repository
 # but allow overriding this with INPUT_ROOTPATH environment variable
 if ($env:INPUT_ROOTPATH) {
-    $analyzeParams.Path = $env:INPUT_ROOTPATH
+    $analyzeParams.Path = Join-Path '/github/workspace' $env:INPUT_ROOTPATH
 } else {
     $analyzeParams.Path = $env:GITHUB_WORKSPACE
 }
 
 # Path to custom script analzyer settings
 if ($env:INPUT_SETTINGSPATH) {
-    $analyzeParams.Settings = $env:INPUT_SETTINGSPATH
+    $analyzeParams.Settings = Join-Path '/github/workspace' $env:INPUT_SETTINGSPATH
 }
 
 # Run PSScriptAnalyzer
 $issues   = Invoke-ScriptAnalyzer @analyzeParams
-$errors   = ($issues.where({$_.Severity -eq 'Error'})).Count
-$warnings = ($issues.where({$_.Severity -eq 'Warning'})).Count
-$infos    = ($issues.where({$_.Severity -eq 'Information'})).Count
+$errors   = $issues.Where({$_.Severity -eq 'Error'})
+$warnings = $issues.Where({$_.Severity -eq 'Warning'})
+$infos    = $issues.Where({$_.Severity -eq 'Information'})
 
-$strings = @{
-    summary    = 'PSScriptAnalyzer results:{0}Errors: {1, 6}{2}Warnings: {3, 4}{4}Information: {5}'
-    errorList  = '{0}The following PSScriptAnalyzer errors caused the check to fail:{1}'
-    warningMsg = '{0} There were **[{1}]** warnings and **[{2}]** informational issues found. These did not cause the check to fail but it is recommended that they be fixed.'
+# Create comment string
+$comment  = '**PSScriptAnalyzer results:**'
+$comment += '{0}<details><summary>Errors: [{1}], Warnings: [{2}], Information: [{3}]</summary><p>{4}{5}```' -f $nl, $errors.Count, $warnings.Count, $infos.Count, $nl, $nl
+if ($errors.Count -gt 0) {
+    $comment += $nl + ($errors | Format-List -Property RuleName, Severity, ScriptName, Line, Message | Out-String -Width 80).Trim()
 }
-
-# Create analysis summary
-$summary = ($strings.summary -f $nl, $errors, $nl, $warnings, $nl, $infos)
-$comment = '```' + $nl + $summary + $nl + '```'
-if ($errors -gt 0) {
-    $comment += $strings.errorList -f $nl, $nl
-    $errorMsg = ($issues.Where({$_.Severity -eq 'Error'}) |
-        Format-List -Property RuleName, Severity, ScriptName, Line, Message |
-        Out-String -Width 80).Trim()
-    $comment += '```' + $nl + $errorMsg + $nl + '```'
+if ($warnings.Count -gt 0) {
+    $comment += $nl+ $nl + ($warnings | Format-List -Property RuleName, Severity, ScriptName, Line, Message | Out-String -Width 80).Trim()
 }
-if (($warnings -gt 0) -or ($infos -gt 0)) {
-    $comment += $strings.warningMsg -f $nl, $warnings, $infos
+if ($infos.Count -gt 0) {
+    $comment += $nl + $nl + ($infos | Format-List -Property RuleName, Severity, ScriptName, Line, Message | Out-String -Width 80).Trim()
 }
+$comment += '{0}{1}```{2}</p></details>' -f $nl, $nl, $nl
 Write-Output $comment
 
-$ghEvent = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json
+# Get comment URL
+$ghEvent     = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json -Depth 30
 $commentsUrl = $ghEvent.pull_request.comments_url
 
-# Send comment back to PR if any errors were found
-if ($env:INPUT_SENDCOMMENT -ne 'false' -and $env:INPUT_SENDCOMMENT -ne 0 -and $commentsUrl) {
-    if ($errors -gt 0) {
-        $params = @{
-            Uri = $commentsUrl
-            Method = 'Post'
-            Headers = @{
-                Authorization = "token $env:INPUT_REPOTOKEN"
-            }
-            ContentType = 'application/json'
-            Body = @{body = $comment} | ConvertTo-Json
+# Send comment back to PR if any issues were found
+if ($commentsUrl -and $env:INPUT_SENDCOMMENT -and ($errors.Count -gt 0 -or $warnings.Count -gt 0 -or $infos.Count -gt 0)) {
+    $params = @{
+        Uri = $commentsUrl
+        Method = 'Post'
+        Headers = @{
+            Authorization = "token $env:INPUT_REPOTOKEN"
         }
-        Invoke-RestMethod @params > $null
+        ContentType = 'application/json'
+        Body = @{body = $comment} | ConvertTo-Json
     }
+    Invoke-RestMethod @params > $null
 }
 
-exit $errors
+$exitCode = 0
+if ($env:INPUT_FAILONERRORS  -eq 'true' -or $env:INPUT_FAILONERRORS  -eq 1) { $exitCode += $errors.Count}
+if ($env:INPUT_FAILONWARNING -eq 'true' -or $env:INPUT_FAILONWARNING -eq 1) { $exitCode += $warnings.Count}
+if ($env:INPUT_FAILONINFOS   -eq 'true' -or $env:INPUT_FAILONINFOS   -eq 1) { $exitCode += $infos.Count}
+exit $exitCode

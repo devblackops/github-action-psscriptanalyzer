@@ -4,27 +4,29 @@ description: GitHub Action to run PSScriptAnalyzer static code analysis checks o
 inputs:
   rootPath:
     description: The root directory to run PSScriptAnalyzer on. By default, this is the root of the repository.
-    default: .
     required: false
   settingsPath:
     description: The path to a PSScriptAnalyser settings file to control rules to execute.
     required: false
-    default: .
-  sendComment:
-    description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more failure checks.
-    required: false
-    default: true
   repoToken:
     description: GitHub token the action will use to send comments back to PR with.
     required: false
-  # sendCommentOnWarnings:
-  #   description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more warning checks.
-  #   required: false
-  #   default: true
-  # sendCommentOnInfos:
-  #   description: Enable/disable sending comments back to PR when PSScriptAnalyzer finds one or more information checks.
-  #   required: false
-  #   default: false
+  sendComment:
+    description: Send comment back to PR with PSScriptAnalyzer summary if any issues where found.
+    required: false
+    default: true
+  failOnErrors:
+    description: Enable/disable failing the action on PSScriptAnalyzer error items.
+    required: false
+    default: true
+  failOnWarnings:
+    description: Enable/disable failing the action on PSScriptAnalyzer warning items.
+    required: false
+    default: true
+  failOnInfos:
+    description: Enable/disable failing the action on PSScriptAnalyzer informational items.
+    required: false
+    default: false
 outputs:
 runs:
   using: docker
