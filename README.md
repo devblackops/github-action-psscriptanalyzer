@@ -32,7 +32,7 @@ jobs:
 
 ### Advanced
 
-Advanced configuration that will run PSSA only in the `MyModule` directory, with customer PSSA settings, and fail on errors, warnings, or informational issues.
+Advanced configuration that will run PSSA only in the `MyModule` directory, with custom PSSA settings, and fail on errors, warnings, or informational issues.
 A comment back to the PR with the PSSA summary will also be sent if any issues were detected.
 
 ```yaml
@@ -58,7 +58,7 @@ jobs:
 
 ### Docker
 
-Use the Docker Hub version of the Action instead of building the container during the check
+Use the Docker Hub version of the Action instead of building the container during the check.
 
 ```yaml
 name: CI
