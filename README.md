@@ -35,7 +35,6 @@ jobs:
 Advanced configuration that will run PSSA only in the `MyModule` directory, with customer PSSA settings, and fail on errors, warnings, or informational issues.
 A comment back to the PR with the PSSA summary will also be sent if any issues were detected.
 
-
 ```yaml
 name: CI
 on: [pull_request]
@@ -55,6 +54,25 @@ jobs:
         failOnErrors: true
         failOnWarnings: true
         failOnInfos: true
+```
+
+### Docker
+
+Use the Docker Hub version of the Action instead of building the container during the check
+
+```yaml
+name: CI
+on: [pull_request]
+jobs:
+  lint:
+    name: Run PSSA
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: lint
+      uses: docker://devblackops/github-action-psscriptanalyzer:2.0.0
+      with:
+        repoToken: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Inputs
