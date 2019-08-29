@@ -12,9 +12,7 @@ The sending of comments back to the PR if the action fails can be disabled if de
 
 ### Basic
 
-Basic configuration that will run PSSA and fail on errors or warnings
-
-, and send a comment back to the PR with a summary.
+Basic configuration that will run PSSA and fail on errors or warnings, and send a comment back to the PR with a summary.
 Note, that `repoToken` is required for sending comments back.
 
 ```yaml
