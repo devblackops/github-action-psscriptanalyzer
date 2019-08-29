@@ -1,4 +1,4 @@
-name: PSScriptAnalyzer
+name: PSScriptAnalyzer checks
 author: Brandon Olin
 description: GitHub Action to run PSScriptAnalyzer static code analysis checks on Pull Requests
 inputs:
