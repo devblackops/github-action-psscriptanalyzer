@@ -1,0 +1,16 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  lint:
+    name: Run PSSA
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: lint
+      uses: devblackops/github-action-psscriptanalyzer@master
+      with:
+        sendComment: true
+        failOnErrors: true
+        failOnWarnings: true
+        failOnInfos: false
+        repoToken: ${{ secrets.GITHUB_TOKEN }}
