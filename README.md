@@ -1,5 +1,7 @@
 # github-action-psscriptanalyzer
 
+[![GitHub Actions Status][github-actions-badge]][github-actions-build]
+
 [GitHub Action](https://github.com/features/actions) to run [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) static code analysis checks on PowerShell for [Pull Requests](https://help.github.com/articles/about-pull-requests/).
 
 ## Success Criteria
@@ -90,3 +92,6 @@ jobs:
 ## Example
 
 ![](media/example.png)
+
+[github-actions-badge]: https://github.com/devblackops/github-action-psscriptanalyzer/workflows/CI/badge.svg
+[github-actions-build]: https://github.com/devblackops/github-action-psscriptanalyzer/actions
