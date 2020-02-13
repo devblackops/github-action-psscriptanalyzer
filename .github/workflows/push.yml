@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: lint
-      uses: devblackops/github-action-psscriptanalyzer@master
+      uses: CrazyCodeUK/github-action-psscriptanalyzer@master
       with:
         sendComment: true
         failOnErrors: true
