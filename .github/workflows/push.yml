@@ -10,7 +10,4 @@ jobs:
       uses: CrazyCodeUK/github-action-psscriptanalyzer@master
       with:
         sendComment: true
-        failOnErrors: true
-        failOnWarnings: true
-        failOnInfos: false
         repoToken: ${{ secrets.GITHUB_TOKEN }}
