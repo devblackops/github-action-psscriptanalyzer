@@ -48,7 +48,7 @@ $ghEvent     = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json -Dept
 $commentsUrl = $ghEvent.pull_request.comments_url
 
 # Send comment back to PR if any issues were found
-if ($commentsUrl -and ($env:INPUT_SENDCOMMENT -eq "$true" -or $env:INPUT_SENDCOMMENT -eq 1) -and ($errors.Count -gt 0 -or $warnings.Count -gt 0 -or $infos.Count -gt 0)) {
+if ($commentsUrl -and ($env:INPUT_SENDCOMMENT -eq "$true" -or $env:INPUT_SENDCOMMENT -eq 1) -and $env:INPUT_REPOTOKEN -and ($errors.Count -gt 0 -or $warnings.Count -gt 0 -or $infos.Count -gt 0)) {
     $params = @{
         Uri = $commentsUrl
         Method = 'Post'
