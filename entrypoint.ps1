@@ -62,7 +62,7 @@ if ($commentsUrl -and $env:INPUT_SENDCOMMENT -and ($errors.Count -gt 0 -or $warn
 }
 
 $exitCode = 0
-if ($env:INPUT_FAILONERRORS  -eq 'true' -or $env:INPUT_FAILONERRORS  -eq 1) { $exitCode += $errors.Count}
+if ($env:INPUT_FAILONERRORS   -eq 'true' -or $env:INPUT_FAILONERRORS   -eq 1) { $exitCode += $errors.Count}
 if ($env:INPUT_FAILONWARNINGS -eq 'true' -or $env:INPUT_FAILONWARNINGS -eq 1) { $exitCode += $warnings.Count}
-if ($env:INPUT_FAILONINFOS   -eq 'true' -or $env:INPUT_FAILONINFOS   -eq 1) { $exitCode += $infos.Count}
+if ($env:INPUT_FAILONINFOS    -eq 'true' -or $env:INPUT_FAILONINFOS    -eq 1) { $exitCode += $infos.Count}
 exit $exitCode
