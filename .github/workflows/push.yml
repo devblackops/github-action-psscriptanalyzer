@@ -5,7 +5,7 @@ jobs:
     name: Run PSSA
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: lint
       uses: devblackops/github-action-psscriptanalyzer@master
       with:
