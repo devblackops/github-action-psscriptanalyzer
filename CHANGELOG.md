@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
-- [**#PR8**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/8) - Update checkout action to v2 (`actions/checkout@v2`) (via [@alagoutte](https://github.com/alagoutte))
+- [**#PR8**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/8) - Fix SendComment (Only if RepoToken is available) (via [@alagoutte](https://github.com/alagoutte))
 
 ### Changed
 
-- [**#PR10**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/10) - Updated PSScriptAnalyzer to `1.19.0` (via [@alagoutte](https://github.com/alagoutte))
+- [**#PR10**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/10) - Update checkout action to v2 (`actions/checkout@v2`) (via [@alagoutte](https://github.com/alagoutte))
 
 - [**#PR7**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/7) - Updated PSScriptAnalyzer to `1.19.0` (via [@alagoutte](https://github.com/alagoutte))
 
