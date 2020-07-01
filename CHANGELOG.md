@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] - 2020-06-30
+
+### Fixed
+
+- [**#PR8**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/8) - Update checkout action to v2 (`actions/checkout@v2`) (via [@alagoutte](https://github.com/alagoutte))
+
+### Changed
+
+- [**#PR10**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/10) - Updated PSScriptAnalyzer to `1.19.0` (via [@alagoutte](https://github.com/alagoutte))
+
+- [**#PR7**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/7) - Updated PSScriptAnalyzer to `1.19.0` (via [@alagoutte](https://github.com/alagoutte))
+
+- [**#PR6**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/6) - Updated PowerShell Docker iamge to `7.0.1` (via [@alagoutte](https://github.com/alagoutte))
+
 ## [2.1.1] - 2020-05-15
 
 ### Fixed
