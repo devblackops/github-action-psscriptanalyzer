@@ -27,7 +27,6 @@ inputs:
     description: Enable/disable failing the action on PSScriptAnalyzer informational items.
     required: false
     default: false
-outputs:
 runs:
   using: docker
   image: Dockerfile
