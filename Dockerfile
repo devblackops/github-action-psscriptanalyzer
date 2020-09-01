@@ -10,7 +10,7 @@ LABEL "com.github.actions.icon"="check-square"
 LABEL "com.github.actions.color"="green"
 
 LABEL "name"       = "github-action-psscriptanalyzer"
-LABEL "version"    = "2.2.0"
+LABEL "version"    = "2.3.0"
 LABEL "repository" = "https://github.com/devblackops/github-action-psscriptanalyzer"
 LABEL "homepage"   = "https://github.com/PowerShell/PSScriptAnalyzer"
 LABEL "maintainer" = "Brandon Olin <brandon@devblackops.io>"

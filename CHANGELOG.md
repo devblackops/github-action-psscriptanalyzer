@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.0] - 2020-08-31
+
+### Fixed
+
+- [**#PR13**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/13) - Remove `outputs` section from `action.yml` to resolve error when `outputs` is empty (via [@SleepySysadmin](https://github.com/SleepySysadmin))
+
+### Changed
+
+- Updated docker image to `powershell:7.0.3-ubuntu-18.04`.
+
+- Updated `PSScriptAnalyzer` to `1.19.1`.
+
 ## [2.2.0] - 2020-06-30
 
 ### Fixed

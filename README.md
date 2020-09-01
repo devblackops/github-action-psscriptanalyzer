@@ -72,7 +72,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: lint
-      uses: docker://devblackops/github-action-psscriptanalyzer:2.2.0
+      uses: docker://devblackops/github-action-psscriptanalyzer:2.3.0
       with:
         repoToken: ${{ secrets.GITHUB_TOKEN }}
 ```
