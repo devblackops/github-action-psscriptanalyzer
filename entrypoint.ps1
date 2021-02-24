@@ -17,7 +17,7 @@ if ($env:INPUT_ROOTPATH) {
     $analyzeParams.Path = $env:GITHUB_WORKSPACE
 }
 
-# Path to custom script analzyer settings
+# Path to custom script analyzer settings
 if ($env:INPUT_SETTINGSPATH) {
     $analyzeParams.Settings = Join-Path '/github/workspace' $env:INPUT_SETTINGSPATH
 }
