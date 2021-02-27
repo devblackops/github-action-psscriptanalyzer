@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.1] - 2021-02-27
+
+### Fixed
+
+- [**#PR15**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/15) - Typo in code comment (via [@revolter](https://github.com/revolter))
+
 ## [2.3.0] - 2020-08-31
 
 ### Fixed
