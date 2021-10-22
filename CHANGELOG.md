@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.4.0] - 2021-10-22
+
+### Changed
+
+- [**#PR18**](https://github.com/devblackops/github-action-psscriptanalyzer/pull/18) - Updated pwsh, Ubuntu, and PSSA versions (via [@alagoutte](https://github.com/alagoutte))
+  - pwsh `7.0.3` -> `7.1.5`
+  - Ubuntu `18.04` -> `20.04`
+  - PSSA `1.19.1` -> `1.20.0`
+
 ## [2.3.1] - 2021-02-27
 
 ### Fixed
