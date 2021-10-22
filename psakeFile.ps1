@@ -7,7 +7,7 @@ task Init {
     $script:dockerAcct = 'devblackops'
     $script:imageName  = $env:BHProjectName
     $script:dockerRepo = "$dockerAcct/$imageName"
-    $script:version    = '2.3.0'
+    $script:version    = '2.4.0'
 }
 
 task Build -depends Init {
