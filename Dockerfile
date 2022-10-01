@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/powershell:7.2.4-ubuntu-20.04 as base
+FROM mcr.microsoft.com/powershell:7.2.6-ubuntu-20.04 as base
 SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 RUN Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; \
     Install-Module PSScriptAnalyzer -RequiredVersion 1.20.0 -Scope AllUsers -Repository PSGallery
